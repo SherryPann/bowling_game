@@ -1,0 +1,25 @@
+{
+  "name": "bowling_game",
+  "version": "1.0.0",
+  "description": "Write a program to score a game of Ten-Pin Bowling.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SherryPann/bowling_game.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SherryPann/bowling_game/issues"
+  },
+  "homepage": "https://github.com/SherryPann/bowling_game#readme",
+  "dependencies": {
+    "lodash": "^3.10.1"
+  },
+  "devDependencies": {
+    "jasmine": "^2.3.2"
+  }
+}
