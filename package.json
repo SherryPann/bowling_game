@@ -4,7 +4,7 @@
   "description": "Write a program to score a game of Ten-Pin Bowling.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jasmine"
   },
   "repository": {
     "type": "git",
