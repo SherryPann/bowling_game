@@ -49,9 +49,31 @@ describe("ScoringRule",function(){
                 bonus: {balls:['8']}
             };
 
-            expect(scoringRule.addSpareBonus(10,game)).toEqual(game.bonus.balls[0]);
+            expect(scoringRule.addSpareBonus(10,game)).toEqual([8]);
         });
 
     });
 
+    describe("stringToDigital",function(){
+
+        it("should return the each ball's point  ",function(){
+
+            expect(scoringRule.stringToDigital(game.frames[1].balls)).toEqual([7,3]);
+            expect(scoringRule.stringToDigital(game.frames[5].balls)).toEqual([8,2]);
+        });
+
+        it("should return the bonus balls of a frame number 10 if it is a spare",function(){
+            game = {
+                frames: [
+                    new Frame(1,['X']),new Frame(2,['7','/']),new Frame(3,['9','-']), new Frame(4,['X']),
+                    new Frame(5,['-','8']),new Frame(6,['8','/']),new Frame(7,['-','6']),
+                    new Frame(8,['X']),new Frame(9,['X']),new Frame(10,['2','/'])]
+                ,
+                bonus: {balls:['8']}
+            };
+
+            expect(scoringRule.addSpareBonus(10,game)).toEqual([8]);
+        });
+
+    });
 })
