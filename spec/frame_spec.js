@@ -21,7 +21,9 @@ describe("Frame",function(){
                 bonus: {balls:['8','1']}
             };
 
-            expect(game.frames[0].getEachPoint(game.frames[0].number,game)).toEqual('X7/');
+            expect(game.frames[0].getEachPoint(game)).toEqual(20);
+            expect(game.frames[1].getEachPoint(game)).toEqual(19);
+            expect(game.frames[2].getEachPoint(game)).toEqual(9);
         });
     });
 })

@@ -15,11 +15,14 @@ Frame.prototype.getEachPoint = function(game){
 
     switch (rule[0]){
         case 'X':
-            return this.balls[0] + scoringRule.addStrikeBonus(this.number,game)[0]+
-            scoringRule.addStrikeBonus(this.number,game)[1];
-        case '/': return this.balls[0] + this.balls[q] + scoringRule.addSpareBonus(this.number,game)[0];
-        case '-':return this.balls[0] + this.balls[1];
+            return scoringRule.stringToDigital(this.balls)[0] + scoringRule.addStrikeBonus(this.number,game)[0]+ scoringRule.addStrikeBonus(this.number,game)[1];
+        case '/': return scoringRule.stringToDigital(this.balls)[0] + scoringRule.stringToDigital(this.balls)[1] + scoringRule.addSpareBonus(this.number,game)[0];
+        case '-':return scoringRule.stringToDigital(this.balls)[0]+scoringRule.stringToDigital(this.balls)[1];
     }
+}
+
+Frame.prototype.StringToDigital = function(ballString){
+
 }
 
 module.exports = Frame;
