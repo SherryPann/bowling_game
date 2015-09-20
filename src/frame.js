@@ -8,7 +8,6 @@ function Frame(number,balls){
 
 Frame.prototype.getEachPoint = function(game){
     var scoringRule = new ScoringRule();
-
     var rule = this.balls.filter(function(ball){
         return ball === 'X'||ball === '/'||ball === '-';
     });
@@ -21,8 +20,6 @@ Frame.prototype.getEachPoint = function(game){
     }
 }
 
-Frame.prototype.StringToDigital = function(ballString){
 
-}
 
 module.exports = Frame;
