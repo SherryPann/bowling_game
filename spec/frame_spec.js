@@ -11,7 +11,7 @@ describe("Frame",function(){
     });
 
     describe("getEachPoint",function(){
-        it("can get tht point of a stike frame",function(){
+        it("can get the point of a stike frame",function(){
             var game = {
                 frames: [
                     new Frame(1,['X']),new Frame(2,['7','/']),new Frame(3,['9','-']), new Frame(4,['X']),
