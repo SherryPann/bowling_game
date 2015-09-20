@@ -21,6 +21,7 @@ describe("Game",function() {
             };
             expect(game.scan(string)).toEqual(expectArray);
         });
+
         it("should receive a string '9-|9-|9-|9-|9-|9-|9-|9-|9-|9-||' representing a bowling game and return the correct object",function(){
             var string = "9-|9-|9-|9-|9-|9-|9-|9-|9-|9-||";
             var expectArray = {
@@ -33,6 +34,7 @@ describe("Game",function() {
             };
             expect(game.scan(string)).toEqual(expectArray);
         });
+
         it("should receive a string 'X|7/|9-|X|-8|8/|-6|X|X|X||81' representing a bowling game and return the correct object",function(){
             var string = "X|7/|9-|X|-8|8/|-6|X|X|X||81";
             var expectArray = {
