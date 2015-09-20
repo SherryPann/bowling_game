@@ -22,12 +22,12 @@ describe("ScoringRule",function(){
 
         it("should return the bonus balls of a frame number 1 if it is strike",function(){
 
-            expect(scoringRule.addStrikeBonus(1,game)).toEqual(['7','/']);
+            expect(scoringRule.addStrikeBonus(1,game)).toEqual([7,3]);
         });
 
         it("should return the bonus balls of a frame number 10 if it is a strike",function(){
 
-            expect(scoringRule.addStrikeBonus(10,game)).toEqual(game.bonus.balls);
+            expect(scoringRule.addStrikeBonus(10,game)).toEqual([8,1]);
         });
 
     });
@@ -36,7 +36,7 @@ describe("ScoringRule",function(){
 
         it("should return the bonus balls of a frame number 1 if it is spare",function(){
 
-            expect(scoringRule.addSpareBonus(2,game)).toEqual('9');
+            expect(scoringRule.addSpareBonus(2,game)).toEqual([9]);
         });
 
         it("should return the bonus balls of a frame number 10 if it is a spare",function(){
