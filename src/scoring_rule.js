@@ -4,6 +4,9 @@ ScoringRule.prototype.addStrikeBonus = function(number,game){
     if(number === 10){
         return this.stringToDigital(game.bonus.balls);
     }
+    else if(number === 9 && game.frames[9].balls[0] === 'X'){
+        return this.stringToDigital([game.frames[9].balls[0],game.bonus.balls[0]]);
+    }
     else {
         if(game.frames[number].balls.length === 2){
             return this.stringToDigital(game.frames[number].balls);

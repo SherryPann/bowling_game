@@ -30,6 +30,10 @@ describe("ScoringRule",function(){
             expect(scoringRule.addStrikeBonus(10,game)).toEqual([8,1]);
         });
 
+        it("should return the bonus balls 0f a frame number 9 if it is a strike",function(){
+            expect(scoringRule.addStrikeBonus(9,game)).toEqual([10,8]);
+        });
+
     });
 
     describe("addSpareBonus",function(){
