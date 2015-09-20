@@ -25,4 +25,17 @@ Game.prototype.getFrames = function(frames){
     return result;
 }
 
+Game.prototype.getFinalPoint = function(game){
+    var point = 0;
+
+
+    game.frames.forEach(function(frame){
+        point += frame.getEachPoint(game)
+    });
+
+    return point;
+}
+
+
+
 module.exports = Game;
