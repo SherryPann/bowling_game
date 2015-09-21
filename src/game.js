@@ -18,12 +18,6 @@ Game.prototype.scan = function(string){
 
 }
 
-Game.prototype.getFrames = function(frames){
-
-
-
-}
-
 Game.prototype.getFinalPoint = function(game){
     var point = 0;
 
