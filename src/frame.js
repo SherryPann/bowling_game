@@ -14,10 +14,10 @@ Frame.prototype.getEachPoint = function(game){
     });
 
     switch (rule[0]){
-        case 'X':
-            return scoringRule.stringToDigital(this.balls)[0] + scoringRule.addStrikeBonus(this.number,game)[0]+ scoringRule.addStrikeBonus(this.number,game)[1];
+
+        case 'X': return scoringRule.stringToDigital(this.balls)[0] + scoringRule.addStrikeBonus(this.number,game)[0] + scoringRule.addStrikeBonus(this.number,game)[1];
         case '/': return scoringRule.stringToDigital(this.balls)[0] + scoringRule.stringToDigital(this.balls)[1] + scoringRule.addSpareBonus(this.number,game)[0];
-        case '-':return scoringRule.stringToDigital(this.balls)[0]+scoringRule.stringToDigital(this.balls)[1];
+        case '-': return scoringRule.stringToDigital(this.balls)[0] + scoringRule.stringToDigital(this.balls)[1];
     }
 }
 
