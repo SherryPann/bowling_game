@@ -19,7 +19,9 @@ describe("Game",function() {
                 ,
                 bonus: {balls:['X','X']}
             };
-            expect(game.scan(string)).toEqual(expectArray);
+            game.scan(string);
+            expect(game.frames).toEqual(expectArray.frames);
+            expect(game.bonus).toEqual(expectArray.bonus);
         });
 
         it("should receive a string '9-|9-|9-|9-|9-|9-|9-|9-|9-|9-||' representing a bowling game and return the correct object",function(){
@@ -32,7 +34,9 @@ describe("Game",function() {
                 ,
                 bonus: {balls:[]}
             };
-            expect(game.scan(string)).toEqual(expectArray);
+            game.scan(string)
+            expect(game.frames).toEqual(expectArray.frames);
+            expect(game.bonus).toEqual(expectArray.bonus);
         });
 
         it("should receive a string 'X|7/|9-|X|-8|8/|-6|X|X|X||81' representing a bowling game and return the correct object",function(){
@@ -45,7 +49,9 @@ describe("Game",function() {
                 ,
                 bonus: {balls:['8','1']}
             };
-            expect(game.scan(string)).toEqual(expectArray);
+            game.scan(string)
+            expect(game.frames).toEqual(expectArray.frames);
+            expect(game.bonus).toEqual(expectArray.bonus);
         });
     });
 
