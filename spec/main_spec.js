@@ -11,6 +11,11 @@ describe("getGamePoint",function(){
         expect(getGamePoint(inputString)).toEqual(90);
     });
 
+    it("should return the correct point of one bowling game that is a whole miss game",function(){
+        var inputString = "--|--|--|--|--|--|--|--|--|--||";
+        expect(getGamePoint(inputString)).toEqual(0);
+    });
+
     it("should return the correct point of one bowling game that is a whole spare game",function(){
         var inputString = "5/|5/|5/|5/|5/|5/|5/|5/|5/|5/||5";
         expect(getGamePoint(inputString)).toEqual(150);

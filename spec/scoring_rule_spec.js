@@ -79,5 +79,18 @@ describe("ScoringRule",function(){
             expect(scoringRule.addSpareBonus(10,game)).toEqual([8]);
         });
 
+
+        it("should return the bonus balls of a frame if it is miss",function(){
+            game = {
+                frames: [
+                    new Frame(1,['-','-']),new Frame(2,['-','-']),new Frame(3,['-','-']), new Frame(4,['-','-']),
+                    new Frame(5,['-','-']),new Frame(6,['-','-']),new Frame(7,['-','-']),
+                    new Frame(8,['-','-']),new Frame(9,['-','-']),new Frame(10,['-','-'])]
+                ,
+                bonus: {balls:[]}
+            };
+
+            expect(scoringRule.addSpareBonus(1,game)).toEqual([0]);
+        });
     });
 })
