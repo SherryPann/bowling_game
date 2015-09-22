@@ -1,23 +1,34 @@
-var ScoringRule = require('./scoring_rule.js');
+var TEN = require("./constant.js").TEN;
 
-function Frame(){}
+function Frame(balls){
+    this.balls = balls;
+}
 
-Frame.prototype.getBallsPoint = function(balls){
+Frame.prototype.isStrike = function(){
 
-    var ballsPoint = [];
+    if(this.balls[0] === TEN){
 
-    ballsPoint.push( balls[0] === 'X' ? 10 : parseInt(balls[0]) || 0);
-
-    if(balls[1] === 'X'){
-
-        ballsPoint.push( 10 );
+        return TEN;
     }
-    else{
+    return 0;
+}
 
-        ballsPoint.push( balls[1] === '/' ? (10 - ballsPoint[0]) : parseInt(balls[1]) || 0);
+Frame.prototype.isSpare = function(){
+
+    if(this.balls[0] + this.balls[1] === TEN){
+
+        return TEN;
     }
+    return 0;
+}
 
-    return ballsPoint;
+Frame.prototype.isMiss = function(){
+
+    if(!(this.isStrike() || this.isSpare())){
+
+        return this.balls[0] + this.balls[1];
+    }
+    return 0;
 }
 
 module.exports = Frame;
