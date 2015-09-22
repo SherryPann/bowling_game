@@ -1,51 +1,48 @@
 function ScoringRule(){}
 
-ScoringRule.prototype.addStrikeBonus = function(number,game){
+ScoringRule.prototype.getFinalPoint = function(game){
+    var finalPoint = 0;
 
-    if(number === 10){
-        return this.stringToDigital(game.bonus.balls);
-    }
-    else if(number === 9 && game.frames[9].balls[0] === 'X'){
-        return this.stringToDigital([game.frames[9].balls[0], game.bonus.balls[0]]);
-    }
-    else {
-        if(game.frames[number].balls.length === 2){
-            return this.stringToDigital(game.frames[number].balls);
+    for(var i = 0; i < 10; i++){
+
+        if(this.addStrikeBonus( i, game.frames)){
+
+            finalPoint += 10 + this.addStrikeBonus( i, game.frames);
+
         }
-        else{
-            return this.stringToDigital([game.frames[number].balls[0], game.frames[number+1].balls[0]]);
-        }
-    }
-}
+        else if(this.addSpareBonus(i, game.frames)){
 
-ScoringRule.prototype.addSpareBonus = function(number,game){
-
-    if(number === 10){
-        return this.stringToDigital(game.bonus.balls);
-    }
-    else{
-        return this.stringToDigital(game.frames[number].balls[0]);
-    }
-}
-
-ScoringRule.prototype.stringToDigital = function(balls) {
-    var bonusBall = [];
-
-    for (var i = 0; i < balls.length; i++) {
-        if (balls[i] === 'X') {
-            bonusBall.push(10);
-        }
-        else if (balls[i] === '/') {
-            bonusBall.push(10 - balls[0]);
-        }
-        else if (balls[i] === '-') {
-            bonusBall.push(0);
+            finalPoint += 10 + this.addSpareBonus( i, game.frames);
         }
         else {
-            bonusBall.push(parseInt(balls[i]));
+            finalPoint += game.frames[i][0] + game.frames[i][1];
         }
+
     }
-    return bonusBall;
+    return finalPoint;
+}
+
+ScoringRule.prototype.addStrikeBonus = function(i, frames){
+
+    if(frames[i][0] === 10){
+
+       return frames[i + 1][0] + (frames[i + 1][1] || frames[i + 2][0] || 0);
+    }
+    else{
+        return 0;
+    }
+}
+
+ScoringRule.prototype.addSpareBonus = function(i, frames){
+
+    if(frames[i][0] + frames[i][1] === 10){
+
+       return frames[i + 1][0];
+    }
+
+    else {
+        return 0;
+    }
 }
 
 module.exports = ScoringRule;
