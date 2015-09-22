@@ -1,26 +1,23 @@
 var ScoringRule = require('./scoring_rule.js');
 
-function Frame(number,balls){
+function Frame(){}
 
-    this.number = number;
-    this.balls = balls;
-}
+Frame.prototype.getBallsPoint = function(balls){
 
-Frame.prototype.getEachPoint = function(game){
-    var scoringRule = new ScoringRule();
+    var ballsPoint = [];
 
-    var rule = this.balls.filter(function(ball){
-        return ball === 'X'||ball === '/'||ball === '-';
-    });
+    ballsPoint.push( balls[0] === 'X' ? 10 : parseInt(balls[0]) || 0);
 
-    switch (rule[0]){
+    if(balls[1] === 'X'){
 
-        case 'X': return scoringRule.stringToDigital(this.balls)[0] + scoringRule.addStrikeBonus(this.number,game)[0] + scoringRule.addStrikeBonus(this.number,game)[1];
-        case '/': return scoringRule.stringToDigital(this.balls)[0] + scoringRule.stringToDigital(this.balls)[1] + scoringRule.addSpareBonus(this.number,game)[0];
-        case '-': return scoringRule.stringToDigital(this.balls)[0] + scoringRule.stringToDigital(this.balls)[1];
+        ballsPoint.push( 10 );
     }
+    else{
+
+        ballsPoint.push( balls[1] === '/' ? (10 - ballsPoint[0]) : parseInt(balls[1]) || 0);
+    }
+
+    return ballsPoint;
 }
-
-
 
 module.exports = Frame;
