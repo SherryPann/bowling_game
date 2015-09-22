@@ -1,14 +1,14 @@
 var Game = require("./game.js");
-var ScoringRule = require("./scoring_rule.js");
+var Calculator = require("./calculator.js");
 
 function getGamePoint(inputString){
 
     var game = new Game();
-    var scoringRule = new ScoringRule();
+    var calculator = new Calculator();
 
-    game.scan(inputString);
+    game.transform(inputString);
 
-    var point = scoringRule.getFinalPoint(game);
+    var point = calculator.getFinalPoint(game);
 
     return point;
 }
