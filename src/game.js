@@ -37,4 +37,9 @@ Game.prototype.getBallsPoint = function(balls){
     return ballsPoint;
 }
 
+Game.prototype.getFrames = function(){
+
+    return this.frames;
+}
+
 module.exports = Game;
