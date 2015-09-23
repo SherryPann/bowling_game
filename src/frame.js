@@ -4,7 +4,7 @@ function Frame(balls){
     this.balls = balls;
 }
 
-Frame.prototype.isStrike = function(){
+Frame.prototype.getStrikePoint = function(){
 
     if(this.balls[0] === TEN){
 
@@ -13,7 +13,7 @@ Frame.prototype.isStrike = function(){
     return 0;
 }
 
-Frame.prototype.isSpare = function(){
+Frame.prototype.getSparePoint = function(){
 
     if(this.balls[0] + this.balls[1] === TEN){
 
@@ -22,9 +22,9 @@ Frame.prototype.isSpare = function(){
     return 0;
 }
 
-Frame.prototype.isMiss = function(){
+Frame.prototype.getMissPoint = function(){
 
-    if(!(this.isStrike() || this.isSpare())){
+    if(!(this.getStrikePoint() || this.getSparePoint())){
 
         return this.balls[0] + this.balls[1];
     }

@@ -11,54 +11,54 @@ describe("Frame", function(){
         });
     });
 
-    describe("isStrike", function(){
+    describe("getStrikePoint", function(){
 
         it("should return 10 if frame is a strike", function(){
 
             var frame = new Frame([10, 0]);
 
-            expect(frame.isSpare()).toEqual(10);
+            expect(frame.getStrikePoint()).toEqual(10);
         });
 
         it("should return 0 if frame is not a strike", function(){
 
             var frame = new Frame([3, 5]);
 
-            expect(frame.isStrike()).toEqual(0);
+            expect(frame.getStrikePoint()).toEqual(0);
         })
     });
 
-    describe("isSpare", function(){
+    describe("getSparePoint", function(){
 
         it("should return 10 if frame is a spare", function(){
 
             var frame = new Frame([5, 5]);
 
-            expect(frame.isSpare()).toEqual(10);
+            expect(frame.getSparePoint()).toEqual(10);
         });
 
         it("should return 0 if frame is not a spare", function(){
 
             var frame = new Frame([3, 5]);
 
-            expect(frame.isStrike()).toEqual(0);
+            expect(frame.getSparePoint()).toEqual(0);
         });
     });
 
-    describe("isMiss", function(){
+    describe("getMissPoint", function(){
 
-        it("should return 10 if frame is a spare", function(){
+        it("should return 9 if frame is a miss", function(){
 
             var frame = new Frame([5, 4]);
 
-            expect(frame.isMiss()).toEqual(9);
+            expect(frame.getMissPoint()).toEqual(9);
         });
 
-        it("should return 0 if frame is not a spare", function(){
+        it("should return 0 if frame is not a miss", function(){
 
             var frame = new Frame([5, 5]);
 
-            expect(frame.isMiss()).toEqual(0);
+            expect(frame.getMissPoint()).toEqual(0);
         })
     });
 })
