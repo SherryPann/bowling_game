@@ -13,5 +13,4 @@ function getGamePoint(inputString){
     return point;
 }
 
-getGamePoint();
-//module.exports = getGamePoint;
+module.exports = getGamePoint;
